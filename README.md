@@ -1,6 +1,6 @@
-# employee-service
+# employee-service 
 Repository has below projects                                      
-**1 : employee crud** - Rest API For CURD 
+**1 : employee service** - Rest API For CURD 
 
 **[JAVA 8 + Spring Boot + redis + docker]*
 
@@ -8,9 +8,16 @@ Repository has below projects
 
 you must first compile and create the jar file
 
+## Build
 ```bash
-cd ../Employed
+//first you must download the project  
+mkdir <name-folder>
+clone respository
+cd <name-folder>/employee-service
+
+//build it with maven
 mvn clean install
+
 //it will build the project and will create docker image
 
 docker build -t employee:1.0 .
