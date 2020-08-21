@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.*;
  *
  * @author digital
  */
-@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
+@CrossOrigin(origins = "*")
 @RestController
 @Slf4j
 public class EmployeeController {
@@ -29,7 +29,6 @@ public class EmployeeController {
 
     @GetMapping("/employee")
     public List<Employee> getAllEmployee() {
-        log.info("pasa por aca");
         return employeeService.listEmployees();
     }
 
