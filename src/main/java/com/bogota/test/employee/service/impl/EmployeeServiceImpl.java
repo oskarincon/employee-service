@@ -3,11 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.crud.test.employee.service.impl;
+package com.bogota.test.employee.service.impl;
 
-import com.crud.test.employee.model.Employee;
-import com.crud.test.employee.repository.EmployeeRepository;
-import com.crud.test.employee.service.EmployeeService;
+import com.bogota.test.employee.model.Employee;
+import com.bogota.test.employee.repository.EmployeeRepository;
+import com.bogtoa.test.employee.service.EmployeeService;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;

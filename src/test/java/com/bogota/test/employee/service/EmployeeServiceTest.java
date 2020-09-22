@@ -3,11 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.crud.test.employee.service;
+package com.bogota.test.employee.service;
 
-import com.crud.test.employee.model.Employee;
-import com.crud.test.employee.repository.EmployeeRepository;
-import com.crud.test.employee.service.impl.EmployeeServiceImpl;
+import com.bogtoa.test.employee.service.EmployeeService;
+import com.bogota.test.employee.model.Employee;
+import com.bogota.test.employee.repository.EmployeeRepository;
+import com.bogota.test.employee.service.impl.EmployeeServiceImpl;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;

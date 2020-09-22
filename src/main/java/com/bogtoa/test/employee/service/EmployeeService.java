@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.crud.test.employee.service;
+package com.bogtoa.test.employee.service;
 
-import com.crud.test.employee.model.Employee;
+import com.bogota.test.employee.model.Employee;
 import java.util.List;
 
 /**

@@ -1,5 +1,6 @@
-package com.crud.test.employee;
+package com.bogota.test.employee;
 
+import com.bogota.test.employee.EmployeeApplication;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;

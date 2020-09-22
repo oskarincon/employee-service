@@ -3,11 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.crud.test.employee.controller;
+package com.bogota.test.employee.controller;
 
 
-import com.crud.test.employee.model.Employee;
-import com.crud.test.employee.service.EmployeeService;
+import com.bogota.test.employee.model.Employee;
+import com.bogtoa.test.employee.service.EmployeeService;
 
 import java.util.List;
 import lombok.extern.slf4j.Slf4j;
