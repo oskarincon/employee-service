@@ -12,6 +12,8 @@ import com.bogtoa.test.employee.service.EmployeeService;
 import java.util.List;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -23,12 +25,14 @@ import org.springframework.web.bind.annotation.*;
 //@CrossOrigin(origins = "*")
 @RestController
 @Slf4j
+@CrossOrigin(origins = "*")
 public class EmployeeController {
     
     @Autowired
     private EmployeeService employeeService;
 
     @GetMapping("/employee")
+    @Cacheable( value = "employees" )
     public List<Employee> getAllEmployee()throws Exception {
         return employeeService.listEmployees();
     }
@@ -41,13 +45,15 @@ public class EmployeeController {
     }
 
     @GetMapping("/employee/{id}")
-    public Employee getEmployeebyId(@PathVariable("id") String id) throws Exception {
+    @Cacheable( value = "employees" )
+    public Employee getEmployeebyId(@PathVariable("id") int id) throws Exception {
         Employee cliente = Employee.builder().id(id).build();
         return employeeService.listEmployeeById(cliente);
     }
 
     @DeleteMapping("/employee/{id}")
-    public ResponseEntity deleteCliente(@PathVariable("id") String id) {
+    @CacheEvict( value = "employees", allEntries = true)
+    public ResponseEntity deleteCliente(@PathVariable("id") int id) {
         Employee employee = employeeService.listEmployeeById(Employee.builder().id(id).build());
         if (employee != null) {
             employeeService.deleteEmployed(employee);

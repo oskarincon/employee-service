@@ -4,11 +4,15 @@
  * and open the template in the editor.
  */
 package com.bogota.test.employee.model;
-
-import java.util.List;
+import java.io.Serializable;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import lombok.*;
-import lombok.NonNull;
-import org.springframework.data.redis.core.RedisHash;
+
 
 /**
  *
@@ -16,16 +20,29 @@ import org.springframework.data.redis.core.RedisHash;
  */
 
 @AllArgsConstructor
-@Data
+@NoArgsConstructor
 @Builder
-@RedisHash("Employee")
-public class Employee {
-    	private static final long serialVersionUID = 1L;
-	private @NonNull String id;
+@Data
+@Entity
+@Table( name = "employees")
+public class Employee implements Serializable{
+    	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
+
+	@Column(name = "first_name", nullable = false)
 	private String firstName;
+
+	@Column(name = "last_name", nullable = false)
 	private String lastName;
+
+	@Column(name = "age", nullable = false)
 	private int age;
+
+	@Column(name = "phone_number", nullable = false)
 	private String phoneNumber;
+        
+        @Column(name = "number_account", nullable = false)
 	private String numberAccount;
         
 }

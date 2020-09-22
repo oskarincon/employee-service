@@ -53,9 +53,9 @@ public class EmployeeControllerTest {
     @Test
     public void getEmployeesTest() throws Exception {
         list = new ArrayList<>();
-        Employee em = Employee.builder().id("123").firstName("oscar").lastName("pum").phoneNumber("3232323").numberAccount("12121212").build();
+        Employee em = Employee.builder().id(123).firstName("oscar").lastName("pum").phoneNumber("3232323").numberAccount("12121212").build();
         list.add(em);
-        final String expected = "[{\"id\":\"123\",\"firstName\":\"oscar\",\"lastName\":\"pum\",\"age\":0,\"phoneNumber\":\"3232323\",\"numberAccount\":\"12121212\"}]";
+        final String expected = "[{\"id\":123,\"firstName\":\"oscar\",\"lastName\":\"pum\",\"age\":0,\"phoneNumber\":\"3232323\",\"numberAccount\":\"12121212\"}]";
 
         Mockito.when(employeeService.listEmployees()).thenReturn(list);
 
@@ -70,7 +70,7 @@ public class EmployeeControllerTest {
 
     @Test
     public void addEmployeeTest() throws Exception {
-        final String bodyRequest = "{\"id\":\"123\",\"firstName\":\"oscar\",\"lastName\":\"pum\",\"age\":0,\"phoneNumber\":\"3232323\",\"numberAccount\":\"12121212\"}";
+        final String bodyRequest = "{\"id\":123,\"firstName\":\"oscar\",\"lastName\":\"pum\",\"age\":0,\"phoneNumber\":\"3232323\",\"numberAccount\":\"12121212\"}";
 
         RequestBuilder requestBuilder = MockMvcRequestBuilders.post("/employee")
                 .accept(MediaType.APPLICATION_JSON).content(bodyRequest)
@@ -82,10 +82,10 @@ public class EmployeeControllerTest {
     }
     @Test
     public void getEmployeeTest() throws Exception {
-        final String id = "123";
+        final int id = 123;
         Employee idEmployee = Employee.builder().id(id).build();
-        Employee em = Employee.builder().id("123").firstName("oscar").lastName("pum").phoneNumber("3232323").numberAccount("12121212").build();
-        final String expected = "{\"id\":\"123\",\"firstName\":\"oscar\",\"lastName\":\"pum\",\"age\":0,\"phoneNumber\":\"3232323\",\"numberAccount\":\"12121212\"}";
+        Employee em = Employee.builder().id(123).firstName("oscar").lastName("pum").phoneNumber("3232323").numberAccount("12121212").build();
+        final String expected = "{\"id\":123,\"firstName\":\"oscar\",\"lastName\":\"pum\",\"age\":0,\"phoneNumber\":\"3232323\",\"numberAccount\":\"12121212\"}";
 
         Mockito.when(employeeService.listEmployeeById(idEmployee)).thenReturn(em);
 
@@ -113,9 +113,9 @@ public class EmployeeControllerTest {
 
         @Test
     public void deleteClienteTest() throws Exception {
-        final String id = "123";
+        final int id = 123;
         Employee idEmployee = Employee.builder().id(id).build();
-        Employee em = Employee.builder().id("123").firstName("oscar").lastName("pum").phoneNumber("3232323").numberAccount("12121212").build();
+        Employee em = Employee.builder().id(123).firstName("oscar").lastName("pum").phoneNumber("3232323").numberAccount("12121212").build();
         final String expected = "{\"id\":\"123\",\"firstName\":\"oscar\",\"lastName\":\"pum\",\"age\":0,\"phoneNumber\":\"3232323\",\"numberAccount\":\"12121212\"}";
 
         Mockito.when(employeeService.listEmployeeById(idEmployee)).thenReturn(em);

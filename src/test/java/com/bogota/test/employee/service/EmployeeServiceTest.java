@@ -49,7 +49,7 @@ public class EmployeeServiceTest {
     @Test
     public void listEmployeesTest(){
         list = new ArrayList<>();
-        em  = Employee.builder().id("123").firstName("oscar").lastName("rincon").age(32).phoneNumber("33121212").numberAccount("32322323").build();  
+        em  = Employee.builder().id(123).firstName("oscar").lastName("rincon").age(32).phoneNumber("33121212").numberAccount("32322323").build();  
         list.add(em);
         Mockito.when(employeeRepository.findAll()).thenReturn(list);
         
@@ -62,8 +62,8 @@ public class EmployeeServiceTest {
     
     @Test
     public void listEmployeebyIdTest() {
-        Employee idEmployee = Employee.builder().id("123").build();
-        em  = Employee.builder().id("123").firstName("oscar").lastName("rincon").age(32).phoneNumber("33121212").numberAccount("32322323").build();
+        Employee idEmployee = Employee.builder().id(123).build();
+        em  = Employee.builder().id(123).firstName("oscar").lastName("rincon").age(32).phoneNumber("33121212").numberAccount("32322323").build();
         Mockito.when(employeeRepository.findById(idEmployee.getId())).thenReturn(Optional.of(em));
         
         Employee expect = employeeService.listEmployeeById(idEmployee);
@@ -73,8 +73,8 @@ public class EmployeeServiceTest {
     
     @Test
     public void insertEmployeeTest() {
-        em  = Employee.builder().id("123").firstName("oscar").lastName("rincon").age(32).phoneNumber("33121212").numberAccount("32322323").build();
-        Employee idEmployee = Employee.builder().id("123").build();
+        em  = Employee.builder().id(123).firstName("oscar").lastName("rincon").age(32).phoneNumber("33121212").numberAccount("32322323").build();
+        Employee idEmployee = Employee.builder().id(123).build();
         
        employeeService.insertEmployee(em);
        Mockito.verify(employeeRepository, Mockito.times(1)).save(em);
@@ -85,7 +85,7 @@ public class EmployeeServiceTest {
     
     @Test
     public void deleteEmployedTest() {
-        em  = Employee.builder().id("123").firstName("oscar").lastName("rincon").age(32).phoneNumber("33121212").numberAccount("32322323").build();
+        em  = Employee.builder().id(123).firstName("oscar").lastName("rincon").age(32).phoneNumber("33121212").numberAccount("32322323").build();
         
        employeeService.deleteEmployed(em);
        Mockito.verify(employeeRepository, Mockito.times(1)).delete(em);

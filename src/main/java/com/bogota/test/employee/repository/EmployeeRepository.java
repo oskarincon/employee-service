@@ -7,11 +7,13 @@ package com.bogota.test.employee.repository;
 
 import com.bogota.test.employee.model.Employee;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
 /**
  *
  * @author digital
  */
-public interface EmployeeRepository extends CrudRepository<Employee, String>{
+@Repository
+public interface EmployeeRepository extends CrudRepository<Employee, Integer>{
     
 }
