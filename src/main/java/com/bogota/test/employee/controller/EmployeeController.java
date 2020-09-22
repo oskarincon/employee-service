@@ -32,7 +32,7 @@ public class EmployeeController {
     private EmployeeService employeeService;
 
     @GetMapping("/employee")
-    @Cacheable( value = "employees" )
+    @Cacheable(value = "employees")
     public List<Employee> getAllEmployee()throws Exception {
         return employeeService.listEmployees();
     }
@@ -45,7 +45,7 @@ public class EmployeeController {
     }
 
     @GetMapping("/employee/{id}")
-    @Cacheable( value = "employees" )
+    @Cacheable( value = "employees", key="#id")
     public Employee getEmployeebyId(@PathVariable("id") int id) throws Exception {
         Employee cliente = Employee.builder().id(id).build();
         return employeeService.listEmployeeById(cliente);
