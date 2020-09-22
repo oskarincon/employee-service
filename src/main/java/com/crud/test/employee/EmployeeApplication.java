@@ -1,4 +1,4 @@
-package com.bogota.test.employee;
+package com.crud.test.employee;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

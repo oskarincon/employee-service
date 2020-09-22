@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.bogota.test.employee.model;
+package com.crud.test.employee.model;
 
 import java.util.List;
 import lombok.*;
@@ -22,7 +22,10 @@ import org.springframework.data.redis.core.RedisHash;
 public class Employee {
     	private static final long serialVersionUID = 1L;
 	private @NonNull String id;
-	private String fullName;
-	private String functions;
-        private List<String> idEmployee;
+	private String firstName;
+	private String lastName;
+	private int age;
+	private String phoneNumber;
+	private String numberAccount;
+        
 }

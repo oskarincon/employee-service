@@ -3,11 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.bogota.test.employee.controller;
+package com.crud.test.employee.controller;
 
 
-import com.bogota.test.employee.model.Employee;
-import com.bogota.test.employee.service.EmployeeService;
+import com.crud.test.employee.model.Employee;
+import com.crud.test.employee.service.EmployeeService;
+
 import java.util.List;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +20,7 @@ import org.springframework.web.bind.annotation.*;
  *
  * @author digital
  */
-@CrossOrigin(origins = "*")
+//@CrossOrigin(origins = "*")
 @RestController
 @Slf4j
 public class EmployeeController {
@@ -28,18 +29,19 @@ public class EmployeeController {
     private EmployeeService employeeService;
 
     @GetMapping("/employee")
-    public List<Employee> getAllEmployee() {
+    public List<Employee> getAllEmployee()throws Exception {
         return employeeService.listEmployees();
     }
 
-    @PostMapping("/employee")
-    public ResponseEntity addEmployee(@RequestBody Employee employee) {
+    @PostMapping(value = "/employee")
+    @ResponseBody
+    public ResponseEntity addEmployee( @RequestBody Employee employee) throws Exception{
         employeeService.insertEmployee(employee);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
     @GetMapping("/employee/{id}")
-    public Employee getEmployeebyId(@PathVariable("id") String id) {
+    public Employee getEmployeebyId(@PathVariable("id") String id) throws Exception {
         Employee cliente = Employee.builder().id(id).build();
         return employeeService.listEmployeeById(cliente);
     }
